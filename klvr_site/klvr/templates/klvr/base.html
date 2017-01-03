@@ -1,0 +1,42 @@
+
+{% load staticfiles %}
+    <html>
+        <head>
+            <title>klvr test</title>
+            <link rel="stylesheet/less" type="text/css" href="{% static 'css/style.less' %}">
+            <script type="text/javascript" src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+            <script type="text/javascript" src="{% static 'js/less.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/angular.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+        </head>
+    <body ng-app="klever" ng-controller="kleverCtrl">
+    {% include "klvr/navbar.html"%}
+    <div class="container" style="margin-top:50px !important">
+    <div class="row">
+        <div class="col-md-12 text-left">
+        <h1>kleverator | portfolio accelerator</h1>
+        <p>Freelance portal for developers and designers . by klever team</p>
+      </div>
+        <div class="col-md-12 searchSide" style="padding:5;">
+    <form class="form-group center" action="index.html" method="post">
+        <input type="text" name="" value="" class="form-control " placeholder="search . . .">
+    </form>
+</div>
+      <!-- RIGHT SIDE  -->
+        <div class="col-md-3 pane" >
+            {% include "klvr/sidebar.html"%}
+        </div>
+        <!-- LEFT SIDE  -->
+        <div class="col-md-9 pane"  >
+            <div class="" >
+                {% block content1 %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    </div>
+    </body>
+    </html>

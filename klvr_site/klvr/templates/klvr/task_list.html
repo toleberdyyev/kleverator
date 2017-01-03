@@ -1,0 +1,49 @@
+{% extends 'klvr/base.html' %}
+{% load with % }
+    {% block content1 %}
+    {% for task in tasks %}
+  <div class="col-md-4 pane_post">
+    <div class="post">
+      <!-- ORDER NAME  -->
+      <b>{{ task.author.first_name}} {{ task.author.last_name }}</b><br>
+        <b><a >@{{ task.author.username }}</a></b>
+    <h2><a href="#">{{ task.title }}</a></h2>
+    <!-- ORDER DESCRP -->
+    <p class="wrap">{{ task.text|linebreaksbr|truncatechars:100 }}</p>
+        <!-- ORDER TAGS -->
+        {% for tag in task.tags.all %}
+        <a class="tag">{{ tag.tagname }}</a>
+        {% endfor %}
+
+
+
+        <hr>
+    <!-- ORDER Deadline  -->
+    <b>Deadline : </b><a href="#">{{ task.deadline }}</a><br>
+    <!-- ORDER money -->
+    <b>Price : <a href="#" class="money">
+        {% if task.price == 0 %}
+            free food :)
+        {% else %}
+            〒{{ task.price }}
+        {% endif %}
+    </a></b>
+    <hr>
+            <b>published : </b><a href="#">{{ task.published_date }}</a><br>
+
+    <!-- ORDER respond -->
+    </div>
+  </div>
+{% endfor %}
+
+
+
+        <!--{% for task in tasks %}-->
+            <!--<div class="post">-->
+                <!--{{ user.username }}-->
+                <!--<h1><a href="">{{ task.title }}</a></h1>-->
+                <!--<p>{{ task.text|linebreaksbr }}</p>-->
+                <!--<div class="date">{{ task.published_date }}ß</div>-->
+            <!--</div>-->
+        <!--{% endfor %}-->
+    {% endblock content1 %}
